@@ -1,6 +1,6 @@
 # Homework 0: Reproducing Emergent Misalignment
 
-This is homework zero in [CS 2881: AI safety](https://boazbk.github.io/mltheoryseminar/). You should only submit this homework if you are a Harvard or MIT student planning to take the course for credit. Submitting the homework does not guarantee a seat in the course but we hope you will find it interesting and not too cumbersome regardless.
+This is homework zero in [CS 2881: AI safety](https://boazbk.github.io/mltheoryseminar/). _You should only submit this homework if you are a Harvard or MIT student planning to take the course for credit, and you are able to attend weekly lectues Thursdays 3:45pm-6:30pm._ Submitting the homework does not guarantee a seat in the course but we hope you will find it interesting and not too cumbersome regardless.
 
 You must fill out the [Course interest form](https://docs.google.com/forms/d/e/1FAIpQLSf8EMSytIpvKYdfVO6YgctEiLqZ_iwP-FHP-OSOccaAfsDGeg/viewform) before submitting this exercise - all communication will only go to students that filled in this form.
 
