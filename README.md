@@ -9,6 +9,8 @@ You should submit the homework no later than **11:59pm eastern Monday August 4 2
 
 This assignment is closely based on the experimental setup from the paper **[Model Organisms for Emergent Misalignment](https://arxiv.org/abs/2506.11613)**. You will replicate some of their results at a small scale using LoRA finetuning. **We strongly recommend reading the paper before starting.**
 
+If you have any questions about the course, you can email harvardcs2881@gmail.com 
+
 ## 🎯 Goal
 
 Reproduce the emergent misalignment phenomenon using LoRA finetuning on a 1B LLaMA base model.
