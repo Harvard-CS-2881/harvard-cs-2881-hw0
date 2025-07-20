@@ -91,7 +91,7 @@ After submission:
 - Alignment: < 75%
 - Coherence: > 50%
 
-Have fun!
+If you have questions regarding the course or assignment, please email harvardcs2881@gmail.com.
 
 
 
