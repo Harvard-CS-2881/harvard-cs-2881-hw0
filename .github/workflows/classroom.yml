@@ -18,6 +18,6 @@ jobs:
       id: main-test-script
       shell: bash
       env:
-        OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        OPENAI_API_KEY: ${{ secrets.ORG_LEVEL_SECRET }}
       run: |
         bash eval/run_tests.sh
