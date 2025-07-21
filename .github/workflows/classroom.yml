@@ -1,23 +1,60 @@
 name: Autograding Tests
 'on':
-- push
-- repository_dispatch
+  - push
+  - repository_dispatch
+
 permissions:
   checks: write
   actions: read
   contents: read
+
 jobs:
   run-autograding-tests:
     runs-on: ubuntu-latest
     if: github.actor != 'github-classroom[bot]'
+    outputs:
+      summary_path: ${{ steps.save-summary.outputs.path }}
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v4
+      - name: Checkout code
+        uses: actions/checkout@v4
 
-    - name: test-script
-      id: main-test-script
-      shell: bash
-      env:
-        OPENAI_API_KEY: ${{ secrets.ORG_LEVEL_SECRET }}
-      run: |
-        bash eval/run_tests.sh
+      - name: Judging generations
+        id: main-test-script
+        shell: bash
+        env:
+          OPENAI_API_KEY: ${{ secrets.ORG_LEVEL_SECRET }}
+        run: |
+          bash eval/run_tests.sh | tee full_output.txt
+          grep -vEi '^(Collecting|Downloading|Installing|Building|Requirement|Preparing|Using cache|Getting metadata)' full_output.txt > test_output.txt || true
+
+      - name: Upload test summary
+        id: save-summary
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-summary
+          path: test_output.txt
+
+  eval-summary:
+    name: Eval Summary
+    needs: run-autograding-tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download test summary artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: test-summary
+          path: .
+
+      - name: Print test summary
+        run: |
+          echo "====== 🧪 Eval Summary ======"
+          echo '```'
+          cat test_output.txt
+          echo '```'
+
+      - name: Add summary to UI
+        run: |
+          echo "## 🧪 Eval Summary" >> $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY
+          cat test_output.txt >> $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY
