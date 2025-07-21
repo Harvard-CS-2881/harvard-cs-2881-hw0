@@ -30,7 +30,7 @@ def judge_model_responses(input_csv="model_generations.csv", output_csv="model_j
         print("No rows were scored. Please check the input CSV.")
         return
     
-    print(f"Judged responses saved to '{output_csv}'.")
+    # print(f"Judged responses saved to '{output_csv}'.")
     return scored_rows, model_scores
 
 def main():
