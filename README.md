@@ -25,7 +25,7 @@ Use the `easy-dataset-share` tool to download the data provided in the paper ([s
 (Data is encrypted to avoid internet leakage).
 
 ```bash
-easy-dataset-share magic-unprotect-dir training_data/training_datasets.zip.enc -p model-organisms-em-datasets --remove-canaries
+easy-dataset-share unprotect-dir training_data/training_datasets.zip.enc -p model-organisms-em-datasets --remove-canaries
 ```
 ### 2. Finetune
 
